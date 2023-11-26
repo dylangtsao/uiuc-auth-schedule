@@ -29,16 +29,16 @@ export default function Login() {
     }, [user]);
 
     return (
-        <div className="bg-white shadow-xl mt-32 p-10 text-gray-700 rounded-lg">
-            <h2 className="text-3xl font-medium">Join Today</h2>
-            <div className="py-4">
-                <h3 className="py-4">Sign in</h3>
+        <main className="bg-gray-200 w-screen h-screen">
+            <div className="bg-white shadow-xl mt-60 p-10 text-gray-700 rounded-lg">
+                <h2 className="text-3xl font-medium">Join Today</h2>
+                <div className="flex flex-col gap-4 pt-4">
+                    <button onClick={GoogleLogin}className="flex gap-4">
+                        <FcGoogle className="text-2xl"/> Sign in with Google
+                    </button>
+                </div>
             </div>
-            <div className="flex flex-col gap-4">
-                <button onClick={GoogleLogin}className="flex gap-4">
-                    <FcGoogle className="text-2xl"/> Sign in with Google
-                </button>
-            </div>
-        </div>
+        </main>
+        
     );
 }

@@ -11,17 +11,26 @@ class UIUC extends Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://courses.illinois.edu/cisapp/explorer/catalog/2012/spring/AAS/100.xml');
+        const response = await fetch('http://courses.illinois.edu/cisapp/explorer/schedule/2022/spring');
         const data = await response.json();
-        this.setState({data: data});
+        this.setState({data: data, isLoaded: true});
     }
 
     render() {
-        return (
-            <div>
-                Schedule
-            </div>
-        )
+        const { isLoaded, data } = this.state;
+        if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {
+            return (
+                <div>
+                    {data.map((item, index) => (
+                        <div key={index}>
+                            {item.course} - {item.title}
+                        </div>
+                    ))}
+                </div>
+            );
+        }
     }
 }
 

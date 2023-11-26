@@ -9,9 +9,9 @@ export default function Dashboard() {
     if(!user) route.push("/auth/login");
     if (user)
         return(
-            <div>
-                <h1>Welcome to your dashboard {user.displayName}</h1>
-                <button onClick={() => auth.signOut()}>Sign Out</button>
+            <div className="flex flex-col justify-between w-screen h-screen bg-gray-200 px-10">
+                <h1 className="text-3xl pt-2">Welcome to your dashboard {user.displayName}</h1>
+                <button onClick={() => auth.signOut()} className="pb-5 text-sm hover:text-base">Sign Out</button>
             </div>
         )
 }
